@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pusat Layanan Aplikasi Terpadu</title>
+
+  <!-- Agar Full Screen di Android & iOS -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f8fafc;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Izin geolocation wajib ada karena di aplikasi Anda ada fitur Presensi GPS -->
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbzjEDBQLpOLcqELrtA15h5j6tqrqIsCnpJppZNUomifjV4_lm3erfzd50mIrA-_Sb87/exec"
+    allow="geolocation *; camera *; microphone *; clipboard-read; clipboard-write; fullscreen"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
